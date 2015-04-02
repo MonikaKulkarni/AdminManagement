@@ -1,0 +1,75 @@
+<style>
+    .btn-group{
+        text-align: center;
+        width: inherit;
+        display: inline;
+
+    }
+</style>
+
+
+
+
+    <div class="btn-group" >
+
+        <button type = "button" class="btn btn-primary" style="background-color: #428bca;color: #ffffff;"           ng-model="options.pantry" btn-checkbox>Pantry Supplies</button>
+        <button type = "button" class="btn btn-primary" style="background-color: #808080;color:#ffffff;"  ng-model="options.office" btn-checkbox>Office Supplies</button>
+        <button type = "button" class="btn btn-primary" style="background-color: #808080;color:#ffffff;"  ng-model="options.all" btn-checkbox>All</button>
+    </div>
+
+
+
+<div style="float: right">
+    <button type = "button" class="btn " style="background-color: #808080;color:#ffffff;"><span class="glyphicon flash"></span>Events Calendar </button>
+    <button type = "button" class="btn " style="background-color: #808080;color:#ffffff;"><span class="glyphicon glyphicon-export"></span>Export</button>
+
+</div>
+    <br/> <br/>
+
+<input type="text" class="form-control"   ng-model="nameFilter" placeholder="Search..."/>
+
+
+
+
+<table class="table table-striped">
+<thead>
+  <tr><th></th>
+      <th>Snack Name</th>
+      <th>Brand</th>
+      <th>Quantity</th>
+      <th>Supplier</th>
+      <th>Ordered On</th>
+  </tr>
+</thead>
+<tbody>
+  <tr ng-repeat="item in inventoryList | filter: searchFilter">
+    <td>
+      <img src="img/flags/{{item.code}}.jpeg" style="width:100px;height:70px" />
+
+	</td>
+    <td style="padding-top: 30px;">
+      <a href="#/inventorylist/{{inventoryItem.InventoryItem.Id}}">
+          {{item.InventoryItem.Name}}
+      </a>
+    </td>
+    <td style="padding-top: 30px;">{{item.Constructors[0].brand}}</td>
+    <td style="padding-top: 30px;">{{item.qty}}</td>
+    <td style="padding-top: 30px;">{{item.supplier}}</td>
+    <td style="padding-top: 30px;">{{item.dateofOrder}}</td>
+      <td align="right" style="padding-top: 30px;">
+          <a href="#/inventorylist/{{item.code}}" class="btn btn-info" role="button">
+              <span class="glyphicon glyphicon-pencil"></span> Edit
+          </a>
+          <a href="#/inventorylist/{{item.code}}" class="btn btn-info" role="button">
+              <span class="glyphicon glyphicon-info-sign"></span> Details
+          </a>
+          <a href="#" class="btn btn-warning" ng-click="feedback()">
+              <span class="glyphicon glyphicon-shopping-cart"></span> Order Request
+          </a>
+      </td>
+
+
+
+  </tr>
+</tbody>
+</table>

@@ -1,0 +1,43 @@
+<div >
+    <section id="main">
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Item Details</h3>
+            </div>
+
+
+            <div style="float: left; padding-left: 20px; padding-right: 50px;">
+
+                <b>{{inventoryItem.InventoryItem.Name}} </b><br/>
+
+                <img ng-show="driver" src="img/flags/{{inventoryItem.code}}.jpeg" style="width:100px; height:100px" /><br/>
+
+            </div>
+            <div class="panel-body" style="padding-top: 20px" >
+
+                Brand: {{inventoryItem.Constructors[0].Brand}}<br/>
+                Quantity: {{inventoryItem.qty}}   <br/>
+                Last Order Date: {{inventoryItem.dateofOrder}}<br/>
+                Next Order Date: {{inventoryItem.refill}} <br/>
+                Frequency of Order: {{inventoryItem.frequency}}
+            </div>
+        </div>
+
+
+
+        <div class="main-content">
+            <h3>My Feedback Note</h3>
+
+            <p><textarea ng-model="message" cols="70" rows="10"></textarea></p>
+            <p>Number of characters left: <span ng-bind="left()"></span></p>
+            <p>
+                <button ng-click="save()" class="btn btn-info">Send</button>
+                <button ng-click="clear()" class="btn btn-info">Clear</button>
+                <a href="./#/drivers" class="btn btn-info" role="button"> <span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+            </p>
+
+
+        </div>
+    </section>
+</div>
